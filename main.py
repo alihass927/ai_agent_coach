@@ -1,6 +1,4 @@
-# ----------------------------------
-# Automating difficulty
-# ----------------------------------
+# Difficulty Automation
 
 def get_difficulty_level(day_number):
     if day_number <= 20:
@@ -10,16 +8,12 @@ def get_difficulty_level(day_number):
     else:
         return "Professional"
     
-# ----------------------------------
 # Daily Challenge Configuration
-# ----------------------------------
 
 day_number = 55
 difficulty_level = get_difficulty_level(day_number)
 
-# ----------------------------------
 # Excel Challenge
-# ----------------------------------
 
 excel_challenge = (
     "EXCEL CHALLENGE\n"
@@ -48,9 +42,7 @@ excel_solutions = {
     )
 }
 
-# ----------------------------------
 # SQL Challenge
-# ----------------------------------
 
 sql_challenge = (
     "SQL CHALLENGE\n"
@@ -82,9 +74,8 @@ sql_solutions = {
     )
 }
 
-# ----------------------------------
 # Output Formatting
-# ----------------------------------
+
 def run_coach_ai():
     print("Daily Analytics Challenge")
     print("-" * 60)
