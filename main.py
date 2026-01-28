@@ -86,6 +86,18 @@ def run_coach_ai():
     print(f"Difficulty: {difficulty_level}\n")
 
     ai_output = generate_daily_challenges(day_number, difficulty_level)
-    print(ai_output)
 
+    # Split AI output into sections
+    excel_section, sql_section = ai_output.split("=== SQL CHALLENGE ===")
+
+    excel_section = excel_section.replace("=== EXCEL CHALLENGE ===", "").strip()
+    sql_section = sql_section.strip()
+
+    print("EXCEL CHALLENGE")
+    print("-" * 40)
+    print(excel_section)
+
+    print("\nSQL CHALLENGE")
+    print("-" * 40)
+    print(sql_section)
 run_coach_ai()
