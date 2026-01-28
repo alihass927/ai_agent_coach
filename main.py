@@ -1,3 +1,6 @@
+
+from ollama_generator import generate_daily_challenges
+
 # Difficulty Automation
 
 def get_difficulty_level(day_number):
@@ -10,7 +13,7 @@ def get_difficulty_level(day_number):
     
 # Daily Challenge Configuration
 
-day_number = 55
+day_number = 1
 difficulty_level = get_difficulty_level(day_number)
 
 # Excel Challenge
@@ -82,13 +85,7 @@ def run_coach_ai():
     print(f"Day: {day_number}")
     print(f"Difficulty: {difficulty_level}\n")
 
-    print(excel_challenge)
-    for level, solution in excel_solutions.items():
-        print(f"{level}:\n{solution}")
+    ai_output = generate_daily_challenges(day_number, difficulty_level)
+    print(ai_output)
 
-    print("\n" + "-" * 40 + "\n")
-
-    print(sql_challenge)
-    for level, solution in sql_solutions.items():
-        print(f"{level}:\n{solution}")
 run_coach_ai()

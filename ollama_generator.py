@@ -51,11 +51,3 @@ def generate_daily_challenges(day_number, difficulty):
     response.raise_for_status()
 
     return response.json()["response"]
-
-# 5. Run the script directly
-if __name__ == "__main__":
-    day_number = 1
-    difficulty = "Beginner"
-
-    result = generate_daily_challenges(day_number, difficulty)
-    print(result)
