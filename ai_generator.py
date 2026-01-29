@@ -39,7 +39,6 @@ For each challenge, include:
 Format clearly with headings.
 """
 
-
 # (5) Creating connection to OpenAI
 def generate_daily_challenges(day_number, difficulty):
     user_prompt = daily_prompt(day_number, difficulty)
