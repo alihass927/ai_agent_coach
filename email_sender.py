@@ -13,7 +13,8 @@ def send_email(subject, body, to_email):
     msg["From"] = sender
     msg["To"] = to_email
     msg["Subject"] = subject
-    msg.set_content(body)
+    msg.set_content("Yuor Email client does not support HTML")
+    msg.add_alternative(body, subtype="html")
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
         smtp.login(sender, password)

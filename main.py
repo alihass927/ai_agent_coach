@@ -1,7 +1,10 @@
 
+# Allow main.py to call Gmail sender
+from email_sender import send_email
+# Allow main.py to call local AI generator
 from ollama_generator import generate_daily_challenges
 
-# Difficulty Automation
+# Difficulty level Automation
 
 def get_difficulty_level(day_number):
     if day_number <= 20:
@@ -87,17 +90,38 @@ def run_coach_ai():
 
     ai_output = generate_daily_challenges(day_number, difficulty_level)
 
-    # Split AI output into sections
+    # Split AI output into sections for readability
     excel_section, sql_section = ai_output.split("=== SQL CHALLENGE ===")
 
     excel_section = excel_section.replace("=== EXCEL CHALLENGE ===", "").strip()
     sql_section = sql_section.strip()
 
-    print("EXCEL CHALLENGE")
-    print("-" * 40)
-    print(excel_section)
+    email_body = f"""
+        <html>
+        <body style="font-family: Arial, san-serif; line-height:2;">
+        <h2>Daily Analytics Challenge</h2>
+<p><b>Day:</b> {day_number}<br>
+<b>Difficulty:</b> {difficulty_level}</p>
 
-    print("\nSQL CHALLENGE")
-    print("-" * 40)
-    print(sql_section)
+<hr>
+
+<h3>Excel Challenge</h3>
+<pre>{excel_section}</pre>
+
+<hr>
+
+<h3>SQL Challenge</h3>
+<pre>{sql_section}</pre>
+        </body>
+        </html>
+        """
+
+    send_email(
+            subject=f"Daily Analytics Challenge - Day {day_number}",
+            body=email_body,
+            to_email="ali.hass927@gmail.com"
+        )
+
+    print("Email sent successfully.")
+
 run_coach_ai()
