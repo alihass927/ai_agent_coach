@@ -20,4 +20,4 @@ jobs:
       - name: Run script
         env:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-        run: python send_daily.py
+        run: python daily_sender.py
