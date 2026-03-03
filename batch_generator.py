@@ -1,7 +1,7 @@
 import json
 from ollama_generator import generate_daily_challenges
 
-TOTAL_DAYS = 30
+TOTAL_DAYS = 61
 
 def get_difficulty(day):
     if day <= 20:
